@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #0b0a09;
+  --color-ink-2: #17130f;
+  --color-ink-3: #221c17;
+  --color-crimson: #7d1a1f;
+  --color-crimson-2: #a3222a;
+  --color-crimson-soft: #3a1315;
+  --color-ember: #c9a15a;
+  --color-ember-2: #e8c67c;
+  --color-cream: #f4ecdc;
+  --color-stone: #a99c8c;
+  --color-line: rgba(244, 236, 220, 0.12);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+  --font-accent: var(--font-oswald);
+
+  --breakpoint-xs: 24rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-crimson);
+  color: var(--color-cream);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Hairline rule used across sections */
+.rule {
+  height: 1px;
+  background: var(--color-line);
+}
+
+/* Ember-gold divider glyph */
+.divider-mark::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-ember), transparent);
+  margin-inline: auto;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
